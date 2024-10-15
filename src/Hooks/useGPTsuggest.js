@@ -22,7 +22,7 @@ function useGPTsuggest(searchtext) {
       searchtext.current.value +
       ". Only give me names of 5 movies, comma-separated like the example result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
     const responce = await axios({
-      url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAF5CXtg5Mo-UtveqaQEyzy05fFmrA4UO8",
+      url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${process.env.REACT_APP_GPT_KEY}`,
       method: "post",
       data: { contents: [{ parts: [{ text: searchkey }] }] },
     });
